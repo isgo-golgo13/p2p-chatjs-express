@@ -25,3 +25,20 @@ p2p-chatjs/
 │   └── peersocket_payload.mjs
 └── README.md (optional)
 ```
+
+
+
+## Generating the TLS Certificates
+```shell
+# Navigate to the certs directory
+cd certs
+
+# Generate a Certificate Authority (CA)
+openssl genpkey -algorithm RSA -out ca-key.pem
+openssl req -x509 -new -nodes -key ca-key.pem -sha256 -days 365 -out ca-cert.pem -subj "/CN=MyCA"
+
+# Generate Server Certificate
+openssl genpkey -algorithm RSA -out server-key.pem
+openssl req -new -key server-key.pem -out server.csr -subj "/CN=localhost"
+openssl x509 -req -in server.csr -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -days 365 -sha256
+```
