@@ -42,3 +42,43 @@ openssl genpkey -algorithm RSA -out server-key.pem
 openssl req -new -key server-key.pem -out server.csr -subj "/CN=localhost"
 openssl x509 -req -in server.csr -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -days 365 -sha256
 ```
+
+
+## Running the Chat Service
+
+This service uses `docker compose` using the included `docker-compose.yaml` file. The dependency for the chat service is the `redis` server and the use of `depends_on` directive forces the `redis` server to startup and serve prior to the chat service starting. 
+
+Here is the `docker-compose.yaml` for reference.
+
+```yaml
+version: "3.8"
+services:
+  chat:
+    build: .
+    ports:
+      - "${HTTP_PORT}:${HTTP_PORT}"
+      - "${HTTPS_PORT}:${HTTPS_PORT}"
+    volumes:
+      - ./certs:/app/certs
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+```
+
+To rebuild the Docker image and start the service run the following.
+
+```shell
+docker-compose up --build
+```
+
+To stop the service run the following.
+
+```shell
+docker-compose down
+```
