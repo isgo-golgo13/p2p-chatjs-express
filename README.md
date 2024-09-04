@@ -2,6 +2,9 @@
 JavaScript Node.js Express.js WebSocket P2P Chat Service with HTML and JavaScript Chat Client
 
 
+![chat-app-graphic]("docs/p2p-chat-shot.png")
+
+
 ## Project Structure
 ```shell
 p2p-chatjs/
