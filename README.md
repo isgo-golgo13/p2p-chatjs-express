@@ -35,7 +35,7 @@ cd certs
 
 # Generate a Certificate Authority (CA)
 openssl genpkey -algorithm RSA -out ca-key.pem
-openssl req -x509 -new -nodes -key ca-key.pem -sha256 -days 365 -out ca-cert.pem -subj "/CN=MyCA"
+openssl req -x509 -new -nodes -key ca-key.pem -sha256 -days 365 -out ca-cert.pem -subj "/CN=ChatCA"
 
 # Generate Server Certificate
 openssl genpkey -algorithm RSA -out server-key.pem
