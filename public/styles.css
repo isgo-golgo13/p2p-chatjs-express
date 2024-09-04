@@ -1,0 +1,19 @@
+/* public/styles.css */
+body {
+    background-color: #ff7518; /* Pumpkin Orange */
+    font-family: "Koulin", sans-serif;
+}
+
+#chat-window {
+    height: 400px;
+    overflow-y: scroll;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#send-button {
+    background-color: #000; /* Black */
+    color: #fff; /* White */
+}

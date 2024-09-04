@@ -1,0 +1,29 @@
+<!-- public/index.html -->
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>P2P Chat</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center">P2P Chat</h1>
+            <div id="chat-window" class="mb-3"></div>
+            <input
+                type="text"
+                id="message-input"
+                class="form-control mb-2"
+                placeholder="Type your message..."
+            />
+            <button id="send-button" class="btn btn-block">Send</button>
+        </div>
+
+        <script type="module" src="/chat-script.mjs"></script>
+    </body>
+</html>

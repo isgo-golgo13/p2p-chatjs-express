@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  chat:
+    build: .
+    ports:
+      - "${HTTP_PORT}:${HTTP_PORT}"
+      - "${HTTPS_PORT}:${HTTPS_PORT}"
+    volumes:
+      - ./certs:/app/certs
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
