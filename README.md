@@ -70,6 +70,18 @@ services:
     ports:
       - "6379:6379"
 ```
+ 
+To verify the Docker build context and ensure `.env` is included run the following.
+
+```shell
+docker-compose config
+```
+
+To further verify the Docker build context run the following.
+
+```shell
+docker build . --no-cache --progress=plain
+```
 
 To rebuild the Docker image and start the service run the following.
 
