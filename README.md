@@ -76,6 +76,12 @@ To rebuild the Docker image and start the service run the following.
 ```shell
 docker-compose up --build
 ```
+Or for `no-cache` builds follow the two steps of.
+
+```shell
+docker-compose build --no-cache
+docker-compose up
+``
 
 To stop the service run the following.
 
