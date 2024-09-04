@@ -46,7 +46,7 @@ openssl x509 -req -in server.csr -CA ca-cert.pem -CAkey ca-key.pem -CAcreateseri
 
 ## Running the Chat Service
 
-This service uses `docker compose` using the included `docker-compose.yaml` file. The dependency for the chat service is the `redis` server and the use of `depends_on` directive forces the `redis` server to startup and serve prior to the chat service starting. 
+This service uses `docker compose` using the included `docker-compose.yaml` file. The dependency for the chat service is the `redis` server and the use of `depends_on` directive forces the `redis` server to startup and serve prior to the chat service starting.
 
 Here is the `docker-compose.yaml` for reference.
 
@@ -70,7 +70,7 @@ services:
     ports:
       - "6379:6379"
 ```
- 
+
 To verify the Docker build context and ensure `.env` is included run the following.
 
 ```shell
@@ -100,3 +100,12 @@ To stop the service run the following.
 ```shell
 docker-compose down
 ```
+
+
+## Checking Redis Syncing for Disconnected Peers
+
+````shell
+docker exec -it p2p-chatjs-redis-1 redis-cli
+KEYS *
+```
+This should show any peers that have were tagged as inactive and synced to Redis.

@@ -21,7 +21,7 @@ export class PeerSocket {
 
       // Handle incoming messages from clients
       ws.on("message", (message) => {
-        console.log("Received message:", message);
+        console.log("Received message:", message.toString());
         const payload = PeerSocketPayload.fromJSON(message);
 
         // Broadcast message to all connected peers
