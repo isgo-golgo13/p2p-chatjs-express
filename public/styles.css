@@ -26,12 +26,9 @@ h1 {
 }
 
 /* Mustard yellow header */
-#chat-table thead {
-    background-color: yellow; /* Mustard yellow for the header */
-}
-
-/* Styling for the table header cells */
-#chat-table th {
+#chat-table thead th {
+    background-color: #ffdb58; /* Mustard yellow for the header */
+    color: black; /* Ensure text is black for contrast */
     border: 1px solid #dddddd;
     padding: 12px;
     text-align: left;
