@@ -21,11 +21,11 @@ const __dirname = path.dirname(__filename);
 
 // Load TLS certificates for HTTPS
 const serverOptions = {
-  cert: fs.readFileSync("certs/server-cert.pem"),
-  key: fs.readFileSync("certs/server-key.pem"),
-  ca: fs.readFileSync("certs/ca-cert.pem"),
-  requestCert: true,
-  rejectUnauthorized: true,
+  cert: fs.readFileSync(path.join(__dirname, "../certs/server-cert.pem")),
+  key: fs.readFileSync(path.join(__dirname, "../certs/server-key.pem")),
+  ca: fs.readFileSync(path.join(__dirname, "../certs/ca-cert.pem")),
+  requestCert: false,
+  rejectUnauthorized: false, // Reject unauthorized connections
 };
 
 // Serve static files from the "public" directory
