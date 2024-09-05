@@ -25,7 +25,7 @@ p2p-chatjs/
 ├── src/
 │   ├── server.mjs
 │   ├── peersocket.mjs
-│   └── peersocket_payload.mjs
+│   └── peersocket-payload.mjs
 └── README.md (optional)
 ```
 
